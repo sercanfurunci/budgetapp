@@ -4,6 +4,8 @@ import { loginFormSchemas } from "../schemas/loginFormSchemas";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 function Login() {
   const [serverError, setServerError] = useState("");
   const [success, setSuccess] = useState("");
@@ -14,7 +16,7 @@ function Login() {
     setServerError("");
     setSuccess("");
     try {
-      const response = await fetch("http://localhost:5050/api/auth/login", {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

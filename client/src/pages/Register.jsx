@@ -3,6 +3,8 @@ import { useFormik } from "formik";
 import { registerFormSchemas } from "../schemas/registerFormSchemas";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 function RegisterForm() {
   const [serverError, setServerError] = useState("");
   const [success, setSuccess] = useState("");
@@ -12,7 +14,7 @@ function RegisterForm() {
     setServerError("");
     setSuccess("");
     try {
-      const response = await fetch("http://localhost:5050/api/auth/register", {
+      const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -108,7 +110,9 @@ function RegisterForm() {
               onChange={handleChange}
               style={{ width: "20px", height: "12px" }}
             />
-            <label className="ml-2">Kullanıcı sözleşmesini kabul ediyorum</label>
+            <label className="ml-2">
+              Kullanıcı sözleşmesini kabul ediyorum
+            </label>
           </div>
           {errors.term && touched.term && (
             <p className="input-error">{errors.term}</p>
