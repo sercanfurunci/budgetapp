@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+.inputDiv{
+    @apply my-[30px]
+}
+.saveButton{
+    @apply w-full bg-amber-300 font-bold border-none rounded-lg cursor-pointer
+ 
+}
+
+input{
+    @apply w-full p-5 border-none bg-black border-b-[1px] border-amber-50 outline-none text-white
+  
+}
+
+.input-error{
+    @apply text-lg text-red-400
+  
+
+}
+
+label{
+    @apply text-white
+}

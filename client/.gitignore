@@ -1,0 +1,24 @@
+# node modules
+node_modules/
+
+# build dosyaları
+dist/
+build/
+
+# sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# log dosyaları
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# local config
+.env
+.env.local
+
+# editor klasörleri
+.vscode/
+.idea/
