@@ -50,35 +50,47 @@ function Login() {
   });
 
   return (
-    <div className="bg-black min-h-screen flex flex-col items-center justify-center">
-      <form className="w-[500px]" onSubmit={handleSubmit}>
-        <div className="inputDiv">
-          <label>Email</label>
+    <div className="bg-black min-h-screen flex flex-col items-center justify-center px-4 py-8">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md sm:max-w-lg md:max-w-xl bg-gray-900 p-6 rounded-lg shadow-lg"
+      >
+        <div className="inputDiv mb-4">
+          <label className="block mb-1 text-white font-semibold">Email</label>
           <input
             type="text"
             id="email"
             placeholder="Email giriniz"
             value={values.email}
             onChange={handleChange}
+            className="w-full p-3 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-amber-400"
           />
-          {errors.email && <p className="input-error">{errors.email}</p>}
+          {errors.email && (
+            <p className="input-error text-sm mt-1">{errors.email}</p>
+          )}
         </div>
-        <div className="inputDiv">
-          <label>Şifre</label>
+        <div className="inputDiv mb-6">
+          <label className="block mb-1 text-white font-semibold">Şifre</label>
           <input
             type="password"
             id="password"
             placeholder="Şifrenizi giriniz"
             value={values.password}
             onChange={handleChange}
+            className="w-full p-3 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-amber-400"
           />
           {errors.password && touched.password && (
-            <p className="input-error">{errors.password}</p>
+            <p className="input-error text-sm mt-1">{errors.password}</p>
           )}
         </div>
-        {serverError && <p className="input-error">{serverError}</p>}
-        {success && <p className="text-green-400 font-bold mb-2">{success}</p>}
-        <button type="submit" className="saveButton">
+        {serverError && (
+          <p className="input-error text-sm mb-2">{serverError}</p>
+        )}
+        {success && <p className="text-green-400 font-bold mb-4">{success}</p>}
+        <button
+          type="submit"
+          className="w-full bg-amber-400 text-black font-bold py-3 rounded hover:bg-amber-500 transition"
+        >
           Giriş Yap
         </button>
       </form>
